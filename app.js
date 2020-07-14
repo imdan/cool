@@ -24,6 +24,10 @@ app.use(cors());
 app.use(express.json());
 app.use(middleware.requestLogger);
 
+app.get('/', (req, res, next) => {
+  res.send('<h1>sup.</h1>');
+});
+
 app.use('/api/projects', projectRouter);
 // have another route here for email with router using node mailer maybe
 // app.use('/contact', emailRouter);
