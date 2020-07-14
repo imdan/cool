@@ -4,6 +4,7 @@
   "description": "backend for sup.cool",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "thaTrap": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

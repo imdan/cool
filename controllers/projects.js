@@ -14,37 +14,29 @@ projectRouter.get('/', async (req, res, next) => {
   }
 });
 
-projectRouter.post('/', async (req, res, next) => {
-  const body = req.body;
+// commenting out for now until I get authentication in place
+// projectRouter.post('/', async (req, res, next) => {
+//   const body = req.body;
 
-  const project = new Project({
-    title: body.title,
-    image: body.image,
-    url: body.url,
-    github: body.github,
-    builtWith: body.builtWith,
-    desc: body.desc,
-    date: new Date()
-  });
+//   const project = new Project({
+//     title: body.title,
+//     image: body.image,
+//     url: body.url,
+//     github: body.github,
+//     builtWith: body.builtWith,
+//     desc: body.desc,
+//     date: new Date()
+//   });
 
-  //   project
-  //     .save()
-  //     .then(savedBlog => {
-  //       res.status(201).json(savedBlog.toJSON());
-  //     })
-  //     .catch(err => {
-  //       next(err);
-  //     });
-
-  try {
-    const savedProject = await project.save();
-    res.status(201).json({
-      data: savedProject.toJSON(),
-      success: true
-    });
-  } catch (err) {
-    next(err);
-  }
-});
+//   try {
+//     const savedProject = await project.save();
+//     res.status(201).json({
+//       data: savedProject.toJSON(),
+//       success: true
+//     });
+//   } catch (err) {
+//     next(err);
+//   }
+// });
 
 module.exports = projectRouter;

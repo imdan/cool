@@ -25,6 +25,8 @@ app.use(express.json());
 app.use(middleware.requestLogger);
 
 app.use('/api/projects', projectRouter);
+// have another route here for email with router using node mailer maybe
+// app.use('/contact', emailRouter);
 
 app.use(middleware.unknownEndpoint);
 app.use(middleware.errorHandler);
