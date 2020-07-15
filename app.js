@@ -25,7 +25,13 @@ app.use(express.json());
 app.use(middleware.requestLogger);
 
 app.get('/', (req, res, next) => {
-  res.send('<h1>sup.</h1>');
+  res.json({
+    sup: {
+      cool: true,
+      builtBy: 'Dan McGuire',
+      contact: 'dan@sup.cool'
+    }
+  });
 });
 
 app.use('/api/projects', projectRouter);
