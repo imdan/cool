@@ -9,7 +9,11 @@ const projectSchema = mongoose.Schema({
   github: String,
   builtWith: Array,
   desc: String,
-  date: Date
+  date: Date,
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  }
 });
 
 projectSchema.set('toJSON', {

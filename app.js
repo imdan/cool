@@ -3,6 +3,8 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const projectRouter = require('./controllers/projects');
+const usersRouter = require('./controllers/users');
+const loginRouter = require('./controllers/login');
 const middleware = require('./utils/middleware');
 const logger = require('./utils/logger');
 const mongoose = require('mongoose');
@@ -23,6 +25,7 @@ mongoose
 app.use(cors());
 app.use(express.json());
 app.use(middleware.requestLogger);
+app.use(middleware.tokenExtractor);
 
 app.get('/', (req, res, next) => {
   res.json({
@@ -35,8 +38,9 @@ app.get('/', (req, res, next) => {
 });
 
 app.use('/api/projects', projectRouter);
-// have another route here for email with router using node mailer maybe
 // app.use('/contact', emailRouter);
+app.use('/api/users', usersRouter);
+app.use('/api/login', loginRouter);
 
 app.use(middleware.unknownEndpoint);
 app.use(middleware.errorHandler);
